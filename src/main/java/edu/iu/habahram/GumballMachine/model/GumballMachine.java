@@ -59,6 +59,7 @@ public class GumballMachine implements IGumballMachine {
             message = "Your quarter has been received";
             succeeded = true;
             state = SOLD;
+            return dispense();
         } else if (state.equalsIgnoreCase(NO_QUARTER)) {
             message = "There is no quarter";
         } else if (state.equalsIgnoreCase(SOLD_OUT)) {
