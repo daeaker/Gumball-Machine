@@ -61,7 +61,11 @@ public class GumballMachine2 implements IGumballMachine{
 
     @Override
     public TransitionResult dispense() {
-        return null;
+        return state.dispense();
+    }
+
+    @Override public TransitionResult refill() {
+        return state.refill();
     }
 
     @Override

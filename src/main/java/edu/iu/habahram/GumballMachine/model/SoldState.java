@@ -30,8 +30,15 @@ public class SoldState implements IState{
         String message = "Here is your gumball";
         boolean succeeded = true;
         return new TransitionResult(succeeded, message, gumballMachine.getTheStateName(), gumballMachine.getCount());
-
     }
+
+    @Override
+    public TransitionResult refill() {
+        String message = "There are already gumballs";
+        boolean succeeded = false;
+        return new TransitionResult(succeeded, message, gumballMachine.getTheStateName(), gumballMachine.getCount());
+    }
+
     @Override
     public String getTheName() {
         return GumballMachineState.GUMBALL_SOLD.name();

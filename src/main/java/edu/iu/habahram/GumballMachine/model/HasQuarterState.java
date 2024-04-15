@@ -31,8 +31,15 @@ public class HasQuarterState implements IState{
         String message = "You must turn the crank first";
         boolean succeeded = false;
         return new TransitionResult(succeeded, message, gumballMachine.getTheStateName(), gumballMachine.getCount());
-
     }
+
+    @Override
+    public TransitionResult refill() {
+        String message = "There are already gumballs";
+        boolean succeeded = false;
+        return new TransitionResult(succeeded, message, gumballMachine.getTheStateName(), gumballMachine.getCount());
+    }
+
     @Override
     public String getTheName() {
         return GumballMachineState.HAS_QUARTER.name();

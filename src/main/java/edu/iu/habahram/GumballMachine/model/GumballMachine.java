@@ -90,6 +90,24 @@ public class GumballMachine implements IGumballMachine {
     }
 
     @Override
+    public TransitionResult refill() {
+        boolean succeeded = false;
+        String message = "";
+        if (state.equalsIgnoreCase(HAS_QUARTER)) {
+            message = "The machine is full";
+        } else if (state.equalsIgnoreCase(NO_QUARTER)) {
+            message = "The machine is full";
+        } else if (state.equalsIgnoreCase(SOLD_OUT)) {
+            message = "The machine has been refilled";
+            succeeded = true;
+            state = NO_QUARTER;
+        } else if (state.equalsIgnoreCase(SOLD)) {
+            message = "The machine is full";
+        }
+        return new TransitionResult(succeeded, message, state, count-1);
+    }
+
+    @Override
     public void changeTheStateTo(GumballMachineState name) {
 
     }

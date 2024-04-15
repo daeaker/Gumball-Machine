@@ -12,6 +12,7 @@ public interface IGumballService {
     TransitionResult turnCrank(String id) throws IOException;
 
     TransitionResult dispense(String id) throws IOException;
+    TransitionResult refill(String id, int count) throws IOException;
 
     List<GumballMachineRecord> findAll() throws IOException;
 
